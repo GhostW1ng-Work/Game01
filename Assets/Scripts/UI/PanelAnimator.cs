@@ -7,6 +7,7 @@ using UnityEngine;
 public class PanelAnimator : MonoBehaviour
 {
     private const string Open = "Open"; 
+
     [SerializeField] private Animator _animator;
 
     private void Start()
