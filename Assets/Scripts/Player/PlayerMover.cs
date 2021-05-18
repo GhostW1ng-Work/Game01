@@ -28,12 +28,12 @@ public class PlayerMover : MonoBehaviour
 
     public void Stop()
     {
-        _rigidBody2D.velocity = new Vector2(0, 0);
+        _rigidBody2D.velocity = new Vector2(0, _rigidBody2D.velocity.y);
     }
 
     public void Jump()
     {
-
+        _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, _yVelocity);
     }
 
 }

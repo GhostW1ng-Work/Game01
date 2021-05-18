@@ -7,8 +7,10 @@ using UnityEngine;
 public class PlayerInput : MonoBehaviour
 {
     private const string Horizontal = "Horizontal";
+    private const string Jump = "Jump";
 
     private PlayerMover _mover;
+    private bool _isGrounded;
 
     private void Start()
     {
@@ -17,13 +19,19 @@ public class PlayerInput : MonoBehaviour
 
     private void Update()
     {
-        InputHorizontal();
+        UpdateHorizontalInput();
+        UpdateJumpInput();
     }
 
-    public void InputHorizontal()
+    public void OnCollisionEnter2D()
+    {
+        _isGrounded = true;    
+    }
+
+    public void UpdateHorizontalInput()
     {
         float moveInput = Input.GetAxis(Horizontal);
-
+        
         if (moveInput > 0)
         {
             _mover.MoveRight();
@@ -31,10 +39,21 @@ public class PlayerInput : MonoBehaviour
         else if (moveInput < 0)
         {
             _mover.MoveLeft();
-        }
-        else if(moveInput == 0)
+        }     
+        else
         {
             _mover.Stop();
         }
     }
+
+    public void UpdateJumpInput()
+    {
+        float jumpInput = Input.GetAxis(Jump);
+
+        if (jumpInput > 0 && _isGrounded == true)
+        {    
+            _mover.Jump();
+            _isGrounded = false;
+        }
+    }      
 }
