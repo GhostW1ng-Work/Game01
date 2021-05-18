@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class PlayerMover : MonoBehaviour
 {
-    [SerializeField] private int _xVelocity;
-    [SerializeField] private int _yVelocity;
+    [SerializeField] private float _xVelocity;
+    [SerializeField] private float _yVelocity;
 
     private Rigidbody2D _rigidBody2D;
 
@@ -18,22 +18,28 @@ public class PlayerMover : MonoBehaviour
 
     public void MoveRight()
     {
-        _rigidBody2D.velocity = new Vector2(_xVelocity, _rigidBody2D.velocity.y);      
+       
+        ChangeVelocity(_xVelocity, _rigidBody2D.velocity.y);
     }
 
     public void MoveLeft()
     {
-        _rigidBody2D.velocity = new Vector2(-_xVelocity, _rigidBody2D.velocity.y);
+        
+        ChangeVelocity(-_xVelocity, _rigidBody2D.velocity.y);
     }
 
     public void Stop()
-    {
-        _rigidBody2D.velocity = new Vector2(0, _rigidBody2D.velocity.y);
+    { 
+        ChangeVelocity(0, _rigidBody2D.velocity.y);
     }
 
     public void Jump()
     {
-        _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, _yVelocity);
+        ChangeVelocity(_rigidBody2D.velocity.x, _yVelocity);
     }
 
+    public void ChangeVelocity(float xVelocity , float yVelocity)
+    {
+        _rigidBody2D.velocity = new Vector2(xVelocity, yVelocity);
+    }
 }

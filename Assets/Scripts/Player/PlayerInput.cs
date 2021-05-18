@@ -12,6 +12,8 @@ public class PlayerInput : MonoBehaviour
     private PlayerMover _mover;
     private bool _isGrounded;
 
+   
+
     private void Start()
     {
         _mover = GetComponent<PlayerMover>();
@@ -25,7 +27,7 @@ public class PlayerInput : MonoBehaviour
 
     public void OnCollisionEnter2D()
     {
-        _isGrounded = true;    
+        _isGrounded = true;
     }
 
     public void UpdateHorizontalInput()
