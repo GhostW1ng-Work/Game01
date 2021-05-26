@@ -1,16 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
-    public static Player Instance { get; private set; }
+    public UnityAction<int> OnCoinsAmountChanged;
+
     private int _coinsAmount = 0;
 
     private void Awake()
     {
-        Instance = this;
+        OnCoinsAmountChanged?.Invoke(_coinsAmount);   
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.GetComponent<Coin>())
+        {
+            AddCoin();
+            OnCoinsAmountChanged(_coinsAmount);
+            Destroy(collision.gameObject);
+        }
     }
 
     public void AddCoin()
@@ -18,11 +27,4 @@ public class Player : MonoBehaviour
         _coinsAmount++;
         Debug.Log($"Coins Amount: {_coinsAmount}");
     }
-
-    public int GetCoinsAmount()
-    {
-        return _coinsAmount;
-    }
-
-    
 }

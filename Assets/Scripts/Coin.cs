@@ -1,16 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Coin : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.GetComponent<Player>())
-        {
-            Player.Instance.AddCoin();
-            CoinText.singleton.ChangeValue(Player.Instance.GetCoinsAmount());
-            Destroy(gameObject);
-        }
-    }
 }
