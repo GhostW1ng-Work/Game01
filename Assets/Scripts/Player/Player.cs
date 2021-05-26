@@ -5,6 +5,8 @@ public class Player : MonoBehaviour
 {
     public UnityAction<int> OnCoinsAmountChanged;
 
+    [SerializeField] private int _health;
+
     private int _coinsAmount = 0;
 
     private void Awake()
@@ -26,5 +28,18 @@ public class Player : MonoBehaviour
     {
         _coinsAmount++;
         Debug.Log($"Coins Amount: {_coinsAmount}");
+    }
+
+    public void ApplyDamage(int damage)
+    {
+        _health -= damage;
+
+        if (_health <= 0)
+            Die();
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
     }
 }
