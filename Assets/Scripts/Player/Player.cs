@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using IJunior.TypedScenes;
 
 public class Player : MonoBehaviour
 {
@@ -40,6 +41,6 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
-        Destroy(gameObject);
+        Menu.Load();
     }
 }

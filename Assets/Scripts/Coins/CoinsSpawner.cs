@@ -23,7 +23,6 @@ public class CoinsSpawner : MonoBehaviour
 
             int spawnPointNumber = Random.Range(0, _spawnPoints.Length);
             Instantiate(_coinPrefab, _spawnPoints[spawnPointNumber]);
-            
         }
     }
 }

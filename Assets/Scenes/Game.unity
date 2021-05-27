@@ -158,7 +158,7 @@ MonoBehaviour:
   - {fileID: 1706401665}
   - {fileID: 1064820140}
   _secondsBetweenSpawn: 2
-  _maxCoinsCount: 1
+  _maxCoinsCount: 2
 --- !u!4 &19008685
 Transform:
   m_ObjectHideFlags: 0
