@@ -38,5 +38,4 @@ public class ObstaclesSpawner : ObjectPool
         obstacle.SetActive(true);
         obstacle.transform.position = spawnPoint;
     }
-
 }
