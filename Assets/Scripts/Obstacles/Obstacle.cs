@@ -18,7 +18,7 @@ public class Obstacle : MonoBehaviour
 
     private void Die()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
 }
