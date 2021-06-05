@@ -14,14 +14,6 @@ public class CameraFollower : MonoBehaviour
 
     public void UpdateCameraPosition()
     {
-        try
-        {
-            transform.position = new Vector3(_player.position.x, _player.position.y, transform.position.z);
-        }
-        catch (Exception error)
-        {
-            Debug.Log(error);
-        }
+        transform.position = new Vector3(_player.position.x, _player.position.y, transform.position.z); 
     }
-
 }

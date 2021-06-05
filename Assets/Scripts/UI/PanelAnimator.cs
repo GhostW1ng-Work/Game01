@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-
 public class PanelAnimator : MonoBehaviour
 {
     private const string Open = "Open"; 

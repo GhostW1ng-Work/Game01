@@ -7,7 +7,6 @@ public class CoinsSpawner : MonoBehaviour
     [SerializeField] private GameObject _coinPrefab;
     [SerializeField] private Transform[] _spawnPoints;
     [SerializeField] private float _secondsBetweenSpawn;
-    [SerializeField] private int _maxCoinsCount;
 
     private int _coinsCount = 0;
     private float _elapsedTime;

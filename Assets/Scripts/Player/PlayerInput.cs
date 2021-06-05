@@ -22,7 +22,7 @@ public class PlayerInput : MonoBehaviour
     private void Update()
     {
         UpdateHorizontalInput();
-        UpdateJumpInput();
+        UpdateJumpInputAndCheckIsGrounded();
     }
 
     public void OnCollisionEnter2D()
@@ -48,14 +48,14 @@ public class PlayerInput : MonoBehaviour
         }
     }
 
-    public void UpdateJumpInput()
+    public void UpdateJumpInputAndCheckIsGrounded()
     {
         float jumpInput = Input.GetAxis(Jump);
 
         if (jumpInput > 0 && _isGrounded == true)
-        {    
+        {
             _mover.Jump();
             _isGrounded = false;
         }
-    }      
+    }
 }
