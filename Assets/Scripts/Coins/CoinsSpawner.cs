@@ -2,12 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoinsSpawner : MonoBehaviour
+public class CoinsSpawner : Spawner
 {
-    [SerializeField] private GameObject _coinPrefab;
-    [SerializeField] private Transform[] _spawnPoints;
-    [SerializeField] private float _secondsBetweenSpawn;
-
     private int _coinsCount = 0;
     private float _elapsedTime;
 
@@ -21,7 +17,7 @@ public class CoinsSpawner : MonoBehaviour
             _elapsedTime = 0;
 
             int spawnPointNumber = Random.Range(0, _spawnPoints.Length);
-            Instantiate(_coinPrefab, _spawnPoints[spawnPointNumber]);
+            Instantiate(_prefab, _spawnPoints[spawnPointNumber]);
         }
     }
 }

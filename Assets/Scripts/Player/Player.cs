@@ -4,30 +4,30 @@ using IJunior.TypedScenes;
 
 public class Player : MonoBehaviour
 {
-    public event UnityAction<int> CoinsAmountChanged;
-
     [SerializeField] private int _health;
 
-    private int _coinsAmount = 0;
+    private int _coins = 0;
+
+    public event UnityAction<int> CoinAdded;
 
     private void Awake()
     {
-        CoinsAmountChanged?.Invoke(_coinsAmount);   
+        CoinAdded?.Invoke(_coins);   
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<Coin>())
         {
-            AddCoin();
-            CoinsAmountChanged(_coinsAmount);
+            AddCoin(); 
             Destroy(collision.gameObject);
         }
     }
 
-    public void AddCoin()
+    private void AddCoin()
     {
-        _coinsAmount++;
+        _coins++;
+        CoinAdded(_coins);
     }
 
     public void ApplyDamage(int damage)

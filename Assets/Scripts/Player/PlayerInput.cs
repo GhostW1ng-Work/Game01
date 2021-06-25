@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerMover))]
-
 public class PlayerInput : MonoBehaviour
 {
     private const string Horizontal = "Horizontal";
@@ -12,8 +11,6 @@ public class PlayerInput : MonoBehaviour
     private PlayerMover _mover;
     private bool _isGrounded;
 
-   
-
     private void Start()
     {
         _mover = GetComponent<PlayerMover>();
@@ -21,16 +18,21 @@ public class PlayerInput : MonoBehaviour
 
     private void Update()
     {
-        UpdateHorizontalInput();
-        UpdateJumpInputAndCheckIsGrounded();
+        SetHorizontalDirection();
+        TryJump();
     }
 
-    public void OnCollisionEnter2D()
+    private void OnCollisionEnter2D()
     {
         _isGrounded = true;
     }
 
-    public void UpdateHorizontalInput()
+    private void OnCollisionExit2D()
+    {
+        _isGrounded = false;
+    }
+
+    private void SetHorizontalDirection()
     {
         float moveInput = Input.GetAxis(Horizontal);
         
@@ -48,14 +50,13 @@ public class PlayerInput : MonoBehaviour
         }
     }
 
-    public void UpdateJumpInputAndCheckIsGrounded()
+    private void TryJump()
     {
         float jumpInput = Input.GetAxis(Jump);
 
         if (jumpInput > 0 && _isGrounded == true)
         {
             _mover.Jump();
-            _isGrounded = false;
         }
     }
 }

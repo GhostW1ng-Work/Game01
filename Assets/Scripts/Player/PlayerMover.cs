@@ -19,26 +19,26 @@ public class PlayerMover : MonoBehaviour
     public void MoveRight()
     {
        
-        ChangeVelocity(_xVelocity, _rigidBody2D.velocity.y);
+        SetVelocity(_xVelocity, _rigidBody2D.velocity.y);
     }
 
     public void MoveLeft()
     {
         
-        ChangeVelocity(-_xVelocity, _rigidBody2D.velocity.y);
+        SetVelocity(-_xVelocity, _rigidBody2D.velocity.y);
     }
 
     public void Stop()
     { 
-        ChangeVelocity(0, _rigidBody2D.velocity.y);
+        SetVelocity(0, _rigidBody2D.velocity.y);
     }
 
     public void Jump()
     {
-        ChangeVelocity(_rigidBody2D.velocity.x, _yVelocity);
+        SetVelocity(_rigidBody2D.velocity.x, _yVelocity);
     }
 
-    public void ChangeVelocity(float xVelocity , float yVelocity)
+    private void SetVelocity(float xVelocity , float yVelocity)
     {
         _rigidBody2D.velocity = new Vector2(xVelocity, yVelocity);
     }

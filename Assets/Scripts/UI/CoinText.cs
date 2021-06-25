@@ -8,16 +8,16 @@ public class CoinText : MonoBehaviour
 
     private void OnEnable()
     {
-        _player.CoinsAmountChanged += ChangeValue;
+        _player.CoinAdded += ChangeCoinsAmount;
     }
 
     private void OnDisable()
     {
-        _player.CoinsAmountChanged -= ChangeValue;
+        _player.CoinAdded -= ChangeCoinsAmount;
     }
 
-    public void ChangeValue(int value)
+    public void ChangeCoinsAmount(int coinsAmount)
     { 
-        _text.text = value.ToString();
+        _text.text = coinsAmount.ToString();
     }
 }
