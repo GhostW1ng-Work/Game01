@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9139e5bd1bd04440857201dbcd2679f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coinPrefab: {fileID: 4581093901784081735, guid: 327b9483835e0e94ea94fe667b1b7fb6, type: 3}
+  _prefab: {fileID: 4581093901784081735, guid: 327b9483835e0e94ea94fe667b1b7fb6, type: 3}
   _spawnPoints:
   - {fileID: 559615989}
   - {fileID: 1706401665}
@@ -857,7 +857,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e74f55a6e238f854c89dc5c810acc2de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _obstaclePrefab: {fileID: 5721561103800833644, guid: 5a0d990157beb444eaf8907b0b934db6, type: 3}
+  _prefab: {fileID: 5721561103800833644, guid: 5a0d990157beb444eaf8907b0b934db6, type: 3}
   _spawnPoints:
   - {fileID: 1263040577}
   - {fileID: 338363468}

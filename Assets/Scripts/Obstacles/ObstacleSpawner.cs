@@ -11,12 +11,12 @@ public class ObstacleSpawner : Spawner
 
     IEnumerator SpawnObstacles()
     {
-        var waitForSecondsBetweenSpawn = new WaitForSeconds(_secondsBetweenSpawn);
+        var spawnDelay = new WaitForSeconds(_secondsBetweenSpawn);
 
         for (int i = 0; i < _spawnPoints.Length; i++)
         {
             Instantiate(_prefab, _spawnPoints[i].position, Quaternion.identity);
-            yield return waitForSecondsBetweenSpawn;
+            yield return spawnDelay;
         }  
     }
 }
